@@ -23,8 +23,7 @@ let canvasW = 700;
 let canvasH = 1000;
 
 let color = [255, 255, 255];
-
-export default (props) => {
+const Game = (props) => {
 
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(canvasW, canvasH).parent(canvasParentRef);
@@ -50,3 +49,5 @@ export default (props) => {
 
     return (<Styles><Sketch width={canvasW} setup={setup} draw={draw} /></Styles>);
 };
+
+export default Game;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { About } from './About';
-import { Game } from './Game';
+import Game from './Game';
 import { NoMatch } from './NoMatch';
 import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';

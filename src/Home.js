@@ -3,8 +3,6 @@ import React from 'react';
 export const Home = () => (
     <div>
         <h1>Daisy Buchanan</h1>
-
-        <h3>this is just copy paste from sparknotes until we have some content</h3>  
     
         <p>Partially based on Fitzgerald’s wife, Zelda, Daisy is a beautiful young woman from Louisville, Kentucky. She is Nick’s cousin and the object of Gatsby’s love. As a young debutante in Louisville, Daisy was extremely popular among the military officers stationed near her home, including Jay Gatsby. Gatsby lied about his background to Daisy, claiming to be from a wealthy family in order to convince her that he was worthy of her. Eventually, Gatsby won Daisy’s heart, and they made love before Gatsby left to fight in the war. Daisy promised to wait for Gatsby, but in 1919 she chose instead to marry Tom Buchanan, a young man from a solid, aristocratic family who could promise her a wealthy lifestyle and who had the support of her parents.</p>
     

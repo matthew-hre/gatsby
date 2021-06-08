@@ -1,53 +1,73 @@
 import React from 'react';
-import Sketch from 'react-p5';
 import styled from 'styled-components';
+import GameButton from './GameButton'; 
 
 const Styles = styled.div`
-    .react-p5 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width: 800px;
+    .game {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    button {
+        width: 50%;
+        margin: 10px;
+        padding: 10px;
     }
 `;
 
-let x = 100;
-let y = 100;
-
-let xInc = 5;
-let yInc = 6.5;
-
-let canvasW = 700;
-let canvasH = 1000;
-
-let color = [255, 255, 255];
-const Game = (props) => {
-
-    const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(canvasW, canvasH).parent(canvasParentRef);
+class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            time: 0,
+            questions: [
+                [["\"'I am a priveledged white girl', Daisy states.\" (Fitzgerald, p. 35)", 0], ["\"'Tom, the Klan is here!', Daisy grins while she gets the fruit salad out.\" (Fitzgerald, p. 11)", 0], ["\"'Oh you really are Great, Mr. Jatsby', Daisy foams at the mouth.\" (Fitzgerald, p. 115)", 1], ["\"'There's the tramp!', Daisy exclaims as she lays on the gas.\" (Fitzgerald, p. 166)", 0]],
+                [["hello world!!!", 0], ["cia!!!o", 0], ["jatsb!!!y", 1], ["myrtl!!!!!!t", 0]]
+            ],
+            current: 0,
+            over: false
+        };
     }
 
-    const draw = (p5) => {
-		p5.background(0);
-        p5.fill(color[0], color[1], color[2]);
-		p5.ellipse(x, y, 140, 140);
+    getButtons() {
+        if(this.state.over) return (<br />);
+        const idx = this.state.current;
+        const questions = this.state.questions[idx];
 
-        if(x < 70 || x > canvasW - 70) {
-            xInc = -xInc;
-            color = [p5.random(255), p5.random(255), p5.random(255)];
+        let buttons = [];
+
+        for(let i = 0; i < questions.length; i++) { 
+            buttons.push(<GameButton content={questions[i]} onClick={() => this.click(questions[i][1])}></GameButton>);
         }
-        if(y < 70 || y > canvasH - 70) {
-            yInc = -yInc;
-            color = [p5.random(255), p5.random(255), p5.random(255)];
+        return buttons;
+    }
+
+    click(isCorrect) {
+        if(isCorrect === 1) {
+            alert("yay!");
+            if(this.state.current+1 >= this.state.questions.length) {
+                alert("you win!");
+                this.setState({time: this.state.time, questions: this.state.questions, current: this.state.current+1, over: true});
+            } else {
+                this.setState({time: this.state.time, questions: this.state.questions, current: this.state.current+1, over: false});
+            }
+        } else {
+            alert("you suck!");
         }
+    }
 
-        x += xInc;
-        y += yInc;
-	};  
+    render() {
+        return (
+            <Styles>
+                <div className="game">
 
-    return (<Styles><Sketch width={canvasW} setup={setup} draw={draw} /></Styles>);
+                {this.getButtons()}
+
+                </div>
+            </Styles>
+        );
+    }
 };
 
 export default Game;

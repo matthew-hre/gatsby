@@ -16,7 +16,7 @@ export const Jumbotron = () => (
     <Styles>
         <Jumbo fluid className="jumbo">
             <Container>
-                <h1>Disecting Daisy</h1>
+                <h1>Dissecting Daisy</h1>
                 <h4>An analysis of F. Scott Fitzgerald's <i>The Great Gatsby</i> character.</h4>
             </Container>
         </Jumbo>

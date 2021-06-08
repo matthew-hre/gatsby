@@ -9,7 +9,9 @@ const Styles = styled.div`
         display: flex;
     }
 
-    button {
+    .game-button {
+        background-color: #dddddd;
+        border: 1px solid grey;
         width: 50%;
         margin: 10px;
         padding: 10px;

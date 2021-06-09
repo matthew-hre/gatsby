@@ -15,8 +15,6 @@ export const About = () => (
         <p>Daisy's heart switches between both Tom and Gatsby throughout the story. </p>  
         <h3>Daisy's voice</h3>
         <p>placeholder</p>  
-        <h3>Daisy's character</h3>
-        <p>placeholder</p>
 
     </div>
 );

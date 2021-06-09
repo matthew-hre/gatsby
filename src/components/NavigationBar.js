@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Styles = styled.div`
     .navbar {
-        background-color: #eeeeee;
+        background-color: rgba(253, 253, 150, 1);
     }
 `;
 
